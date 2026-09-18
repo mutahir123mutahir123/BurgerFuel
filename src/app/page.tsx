@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { Suspense, useState, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Hero } from '@/components/Hero';
 import { CategorySlider } from '@/components/CategorySlider';
@@ -15,7 +15,7 @@ function getValidCategory(categoryId: string | null): string {
   return exists ? categoryId : categories[0]?.id ?? '';
 }
 
-export default function Home() {
+function HomeContent() {
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get('category');
 
@@ -51,5 +51,17 @@ export default function Home() {
         onClose={handleCloseModal}
       />
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-muted text-sm">Loading...</div>
+      </div>
+    }>
+      <HomeContent />
+    </Suspense>
   );
 }
