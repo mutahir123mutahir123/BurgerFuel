@@ -139,6 +139,24 @@ const beefBurgers: Product[] = [
     type: 'simple',
     price: 800,
   },
+  {
+    id: generateId('black-bun-single'),
+    name: 'Black Bun Single',
+    description: 'Special beef burger with single smash patty',
+    image: '/images/burgers/black burger.jpg',
+    categoryId: 'beef-burger',
+    type: 'simple',
+    price: 750,
+  },
+  {
+    id: generateId('black-bun-double'),
+    name: 'Black Bun Double',
+    description: 'Special beef burger with double smash patty',
+    image: '/images/burgers/black burger.jpg',
+    categoryId: 'beef-burger',
+    type: 'simple',
+    price: 950,
+  },
 ];
 
 // Wraps Category
