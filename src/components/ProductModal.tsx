@@ -50,7 +50,7 @@ function getDefaultQuantity(prices: Record<QuantityOption, number>): QuantityOpt
 const PIZZA_FLAVORS: PizzaFlavor[] = ['Tikka', 'Fajita', 'Spicy'];
 const DRINK_CHOICES: DrinkChoice[] = ['Cola Next', 'Fizzup', 'Water'];
 
-const EXCLUDED_CATEGORIES = new Set(['soft-drink', 'chillers', 'add-ons']);
+const EXCLUDED_CATEGORIES = new Set(['soft-drink', 'chillers', 'add-ons', 'crispy-chicken', 'new-arrival', 'pizza', 'special-pizza', 'signature-pizza', 'fries', 'crunch-n-munch', 'pasta']);
 
 const CRISPY_CHICKEN_IMAGES: Record<string, string> = {
   '1 pcs': '/images/crispy-chicken/1pcs-chicken.jpeg',
