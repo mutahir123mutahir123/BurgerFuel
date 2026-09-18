@@ -1,0 +1,507 @@
+BurgerFuel — Development Phases
+Phase 0 — Project Foundation & Rules
+
+Goal: Prepare the codebase before building UI.
+
+Tasks:
+
+Set up the project structure.
+Add/read rules.md.
+Define TypeScript types.
+Create the menu data structure from menu-items.txt.
+Define categories.
+Define product variants.
+Define cart item types.
+Define configurable options such as:
+Pizza sizes
+Extra topping
+Cheese slice
+Wrap sauces
+Establish image folder structure.
+Check existing dependencies before installing anything.
+
+Deliverable:
+
+Project
+├── components/
+├── data/
+│   ├── menu.ts
+│   └── hero.ts
+├── types/
+├── hooks/
+├── context/
+├── utils/
+└── rules.md
+
+No major UI yet.
+
+Phase 1 — Hero Banner System
+
+Goal: Build the first visual section.
+
+Desktop
+┌──────────────────────────────────────┐
+│                                      │
+│            HERO BANNER               │
+│                                      │
+│                                      │
+│                  ● ○ ○               │
+└──────────────────────────────────────┘
+Mobile
+┌─────────────────────┐
+│                     │
+│    HERO BANNER      │
+│                     │
+│        ● ○ ○        │
+└─────────────────────┘
+
+Features:
+
+3 banners
+Automatic sliding
+3-second interval
+Desktop responsive layout
+Mobile responsive layout
+Swipe support on mobile
+Navigation indicators
+Smooth transitions
+Optimized images
+
+Components:
+
+Hero
+└── HeroSlider
+    └── HeroSlide
+Phase 2 — Menu Category Slider
+
+Goal: Create the category navigation immediately below the hero.
+
+Because there are many categories, they should not wrap into multiple rows.
+
+Desktop
+← Crispy Burger | Grill Burger | Beef Burger | Wraps | Pasta | Pizza | Deals | ... →
+Mobile
+← Crispy Burger | Grill Burger | Beef Burger | Wraps | Pasta | ... →
+
+Features:
+
+Horizontal scrolling
+Active category
+Smooth scrolling
+Mouse/touch support
+Active category styling
+Automatically bring selected category into view
+No category wrapping
+
+Example:
+
+<CategorySlider
+  categories={menuCategories}
+  activeCategory={activeCategory}
+  onCategoryChange={setActiveCategory}
+/>
+Phase 3 — Menu Product Grid
+
+Goal: Display products belonging to the selected category.
+
+Mobile
+┌─────────┐ ┌─────────┐
+│  IMAGE  │ │  IMAGE  │
+│         │ │         │
+│ Zingo   │ │ Tower   │
+│ Rs 450  │ │ Rs 600  │
+│ [ ADD ] │ │ [ ADD ] │
+└─────────┘ └─────────┘
+Desktop
+┌─────────┐ ┌─────────┐ ┌─────────┐
+│  IMAGE  │ │  IMAGE  │ │  IMAGE  │
+│ Zingo   │ │ Tower   │ │ Original│
+│ Rs 450  │ │ Rs 600  │ │ Rs 380  │
+│ [ ADD ] │ │ [ ADD ] │ │ [ ADD ] │
+└─────────┘ └─────────┘ └─────────┘
+
+Requirements:
+
+2 columns mobile
+3 columns desktop
+Product image
+Product name
+Base price
+Add button
+Clickable card
+Responsive image sizing
+Lazy loading where appropriate
+
+For products with multiple prices, the card shows the base/starting price, while the popup handles the variants.
+
+For example:
+
+Tikka Pizza
+Starting from Rs 600
+
+rather than displaying all three prices on the card.
+
+Phase 4 — Product Details Popup
+
+This is an important phase because this is where your different menu structures are handled.
+
+When the user clicks a product:
+
+Product Card
+     ↓
+Product Modal
+
+Example:
+
+┌──────────────────────────────────────┐
+│                         ✕            │
+│                                      │
+│             PRODUCT IMAGE            │
+│                                      │
+│  Tikka Pizza                         │
+│  Description                         │
+│                                      │
+│  SIZE                                │
+│  ○ Small    ○ Medium    ○ Large      │
+│                                      │
+│  EXTRA TOPPING                       │
+│  □ Extra Cheese                      │
+│                                      │
+│  □ Cheese Slice                      │
+│                                      │
+│             Rs 1,400                 │
+│                                      │
+│           [ ADD TO CART ]            │
+└──────────────────────────────────────┘
+
+The popup should be dynamic based on the product.
+
+Phase 5 — Product Configuration System
+
+Rather than making separate modals for every food type, create one configurable system.
+
+Pizza
+Pizza
+ ↓
+Size
+ ↓
+Extra Topping
+ ↓
+Extra Cheese Slice
+ ↓
+Add to Cart
+
+Your menu contains regular pizzas with Small/Medium/Large prices and special pizzas with Medium/Large prices.
+
+Wings / Nuggets / Chicken
+
+For products with quantity variants:
+
+Wings
+
+○ 5 pcs — Rs 440
+○ 10 pcs — Rs 800
+
+[ ADD TO CART ]
+
+Your menu contains these quantity-based variants in Crunch N Munch and Crispy Chicken.
+
+Wrap
+
+This needs custom validation.
+
+Your menu says:
+
+Choose any two sauces
+
+So:
+
+WRAP
+
+Choose exactly 2 sauces
+
+☐ Chipotle
+☐ Honey Mustard
+☐ Salsa
+☐ B.B.Q
+☐ Chilli Lava
+☐ Peri Peri
+☐ Garlic
+
+Selected: 1 / 2
+
+[ ADD TO CART ]
+
+The button should remain disabled until exactly two sauces are selected.
+
+The two selected sauces must also become part of the cart item's configuration.
+
+Phase 6 — Cart State & Cart Drawer
+
+Once product configuration works, build the cart.
+
+I'd use a dedicated cart context/store rather than passing cart state through:
+
+App
+ ↓
+Navbar
+ ↓
+Menu
+ ↓
+ProductCard
+ ↓
+Modal
+ ↓
+...
+
+That would create unnecessary prop drilling.
+
+Instead:
+
+CartProvider
+       │
+       ├── addItem()
+       ├── removeItem()
+       ├── updateQuantity()
+       ├── clearCart()
+       ├── subtotal
+       └── totalItems
+
+Then any component that genuinely needs cart information can consume it.
+
+Phase 7 — Cart Drawer UI
+
+When the user adds something:
+
+                  ┌────────────────────────┐
+                  │ YOUR CART          ✕   │
+                  │                        │
+                  │ Zingo Burger           │
+                  │ Rs 450       − 1 +     │
+                  │                        │
+                  │ Tikka Pizza             │
+                  │ Large                   │
+                  │ Extra Cheese            │
+                  │ Rs 1950      − 1 +      │
+                  │                        │
+                  ├────────────────────────┤
+                  │ Subtotal       Rs 2400 │
+                  │                        │
+                  │ [ PROCEED TO CHECKOUT ]│
+                  └────────────────────────┘
+
+The drawer should work on both mobile and desktop.
+
+On mobile, I'd make it close to a full-screen drawer.
+
+Phase 8 — Checkout
+
+When the customer clicks:
+
+Proceed to Checkout
+
+navigate to the checkout page/section.
+
+Flow:
+
+Cart
+ ↓
+Checkout
+
+Checkout contains:
+
+Order type
+[ PICKUP ]     [ DELIVERY ]
+
+Then customer information.
+
+For example:
+
+Customer Information
+
+Name
+Phone
+Address        ← when Delivery
+
+The exact fields can be finalized before implementation.
+
+Phase 9 — Delivery / Pickup Logic
+
+The checkout form should dynamically change based on the selection.
+
+Pickup
+Pickup
+ ↓
+Customer Information
+ ↓
+Payment Method
+Delivery
+Delivery
+ ↓
+Customer Information
+ ↓
+Delivery Address
+ ↓
+Payment Method
+
+Right now you only want:
+
+Payment Method
+
+● Cash on Delivery
+
+So we should not build unnecessary payment integrations yet.
+
+The architecture can still leave room for future methods.
+
+Phase 10 — Order Submission
+
+When the customer submits:
+
+Checkout
+    ↓
+Validate form
+    ↓
+Validate cart
+    ↓
+Create order
+    ↓
+Generate/Get Order ID
+    ↓
+Success screen
+
+We should prevent:
+
+empty cart submission
+invalid customer information
+invalid variant selections
+invalid wrap sauce selections
+accidental duplicate submissions
+Phase 11 — Order Success
+
+After successful submission:
+
+┌──────────────────────────────────────┐
+│                                      │
+│             ✓                        │
+│                                      │
+│        THANK YOU!                    │
+│                                      │
+│     Your order has been placed.      │
+│                                      │
+│        ORDER ID                      │
+│        #BF-10294                     │
+│                                      │
+│       [ BACK TO MENU ]               │
+│                                      │
+└──────────────────────────────────────┘
+
+The order ID should be clearly visible so the customer can reference it.
+
+Phase 12 — Final Optimization & QA
+
+Only after the complete flow works:
+
+Hero
+ ↓
+Categories
+ ↓
+Menu
+ ↓
+Product Modal
+ ↓
+Configuration
+ ↓
+Cart
+ ↓
+Checkout
+ ↓
+Order Success
+
+we do the final optimization pass.
+
+Check:
+
+Performance
+Image optimization
+Lazy loading
+unnecessary renders
+unnecessary client components
+expensive calculations
+unnecessary context updates
+animation performance
+bundle size
+unnecessary dependencies
+React
+prop drilling
+state placement
+Context usage
+useMemo
+useCallback
+component re-renders
+stable keys
+derived state
+
+And importantly, we won't blindly add useMemo or useCallback everywhere. They should be used where they provide an actual benefit.
+
+Recommended implementation order
+
+So the actual development roadmap becomes:
+
+PHASE 0
+Project Foundation
+        ↓
+PHASE 1
+Hero Slider
+        ↓
+PHASE 2
+Category Slider
+        ↓
+PHASE 3
+Product Grid + Cards
+        ↓
+PHASE 4
+Product Modal
+        ↓
+PHASE 5
+Product Configuration
+        ↓
+PHASE 6
+Cart State
+        ↓
+PHASE 7
+Cart Drawer
+        ↓
+PHASE 8
+Checkout
+        ↓
+PHASE 9
+Pickup / Delivery
+        ↓
+PHASE 10
+Order Submission
+        ↓
+PHASE 11
+Thank You + Order ID
+        ↓
+PHASE 12
+Optimization + Testing
+One architectural rule I'd add
+
+I would make Phase 0 the foundation for everything, particularly the product configuration model. Your menu isn't just name + price: it has normal prices, pizza sizes, quantity variants, wrap sauce selection, extra toppings, and add-ons.
+
+If we design that model correctly first, the UI becomes much cleaner:
+
+Menu Data
+    ↓
+Product Card
+    ↓
+Product Modal
+    ↓
+Configuration
+    ↓
+Cart Item
+    ↓
+Checkout
+    ↓
+Order

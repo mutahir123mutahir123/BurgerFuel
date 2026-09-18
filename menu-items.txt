@@ -1,0 +1,229 @@
+Crispy Burger (All burgers served with fries)
+
+Original (Patty) | Price: 380
+
+Zingo | Price: 450
+
+Zingo Max | Price: 670
+
+Tower | Price: 600
+
+Fish Burger | Price: 800
+
+Fish & Chips | Price: 800
+
+Grill Burger (All burgers served with fries)
+
+Tex Max | Price: 590
+
+Salsa | Price: 590
+
+Peri Peri | Price: 590
+
+Smokey Cheese | Price: 630
+
+Meat Monster | Price: 780
+
+Beef Burger (All burgers served with fries)
+
+Smash Burger Single | Price: 750
+
+Smash Double | Price: 950
+
+Lacha Paratha Smash | Price: 800
+
+Wraps
+
+Crispy or Grill Wrap | Description: Choose any two sauces (Chipotle, Honey Mustard, Salsa, B.B.Q, Chilli Lava, Peri Peri, Garlic) | Price: 700
+
+Pasta's
+
+Smokey BBQ | Price: 750
+
+Spicy Garlic | Price: 750
+
+Alfredo | Price: 750
+
+Crunchy Pasta | Price: 850
+
+Crunch N Munch
+
+Wings | 5 pcs: 440 | 10 pcs: 800
+
+BBQ Wings | 5 pcs: 460 | 10 pcs: 850
+
+Buffalo Wings | 5 pcs: 460 | 10 pcs: 850
+
+Sweet Chilli Wings | 5 pcs: 460 | 10 pcs: 850
+
+Nuggets | 5 pcs: 350 | 10 pcs: 700
+
+Strips in Chips | 5 pcs: 500 | 10 pcs: 950
+
+Fries
+
+Small Fries | Price: 250
+
+Large Fries | Price: 350
+
+Saucy Blast | Price: 600
+
+Cheesy melt Fries | Price: 700
+
+Sandwiches
+
+Club Sandwich | Price: 600
+
+Cheese Grilled Sandwich | Price: 650
+
+Pizza
+
+Tikka | Small: 600 | Medium: 1150 | Large: 1650
+
+Fajita | Small: 600 | Medium: 1150 | Large: 1650
+
+Supreme | Small: 600 | Medium: 1150 | Large: 1650
+
+BBQ Extreme | Small: 600 | Medium: 1150 | Large: 1650
+
+Spicy Tikka | Small: 600 | Medium: 1150 | Large: 1650
+
+Lazania | Small: 700 | Medium: 1250 | Large: 1750
+
+Special Pizza
+
+Kebab Crust | Medium: 1350 | Large: 1990
+
+Cheese Crust| Medium: 1350 | Large: 1990
+
+Crown Crust| Medium: 1350 | Large: 1990
+
+BurgerFuel Special | Medium: 1350 | Large: 1990
+
+Malai Boti | Medium: 1350 | Large: 1990
+
+Signature Pizza
+
+Malai Cheese Crust | Medium (11"): 1350 | Large (13"): 1990
+
+Royal Crust | Large (13"): 2290
+
+Extra Topping
+
+Extra Cheese / Topping | Small: 150 | Medium: 250 | Large: 350
+
+New Arrival
+
+spin roll| Price: 650
+
+Behari roll | Price: 700
+
+Cheese stick | Price: 750
+
+Malai cheese roll | Price: 750
+
+Deals
+
+DEAL 1 | Description: 1 Zingo Burger, Regular Fries, 1 Soft Drink (300ml) | Price: 630
+
+DEAL 2 | Description: 1 Zingo Burgers, Regular Fries, 3 wings | Price: 770
+
+DEAL 3 | Description: peri peri Burger, Regular Fries, 1 Soft Drink (300ml) | Price: 750
+
+DEAL 4 | Description: 1 Smockey Cheese Burger,  Regular Fries, 1 Soft Drinks (300ml) | Price: 1340
+
+DEAL 5 | Description: 2 Zingo Burger, Regular Fries, 6-wings, 2 Soft Drink (300ml) | Price: 1650
+
+DEAL 6 | Description: 2 Zingo Burgers, 1 small tikka pizza, 1 Regular Fries, 2 Soft Drinks (300ml) | Price: 1730
+
+DEAL 7 | Description: 4 Zingo burgers, 1 ltr drink , 1 regular fries | Price: 2000
+
+DEAL 8 | Description: 1 Medium fajita Pizza, 1 saucy blast fries | Price: 1750
+
+DEAL 9 | Description: 1 Large lazania Pizza, 1Ltr Soft Drink | Price: 1850
+
+DEAL 10 | Description: 1 small fajita,1 small supreme Pizza, 1Ltr Soft Drink | Price: 1320
+
+DEAL 11 | Description: 1 medium tikka,1 meduim supreme Pizza,1Ltr Soft Drink | Price: 2420
+
+DEAL 12 | Description: 1 Large supreme Pizza, 1 large tikka Pizza, 1Ltr Soft Drink | Price: 3420
+
+Deal No. 13	1 Zingo Burger, 1 Fries, 1 300ml Drink	Rs. 550
+
+Deal No. 14	1 Small Pizza, 1 300ml Drink	Rs. 620
+
+Deal No. 15	1 Small Pizza, 1 Zingo Burger, 1 Fries, 1 300ml Drink	Rs. 1250
+
+Deal No. 16	1 Large Pizza, 3 Zingo Burger, 1 Fries, 1 1.5 Ltr Drink	Rs. 3200
+
+Deal No. 17	1 Medium Pizza, 10 Hot Wings, 2 Chicken Pcs, 1 Fries, 1 300ml Drink	Rs. 2480
+
+Deal No. 18	1 Crown Crust Pizza, Behari Roll 2 Pcs, 2 300ml Drink	Rs. 2250
+
+Deal No. 19	2 Patty Burger, 5 Nuggets, 1 Fries, 1 300ml Drink	Rs. 1180
+
+Deal 20	2 Small Pizza (Flavour: Tikka, Fajita, Spicy), 1 300 ml Drink	Rs. 1150
+
+Deal 21	2 Medium Pizza (Flavour: Tikka, Fajita, Spicy), 1 1 Ltr Drink	Rs. 2280
+
+Deal 22	2 Large Pizza (Flavour: Tikka, Fajita, Spicy), 1 1.5 Ltr Drink	Rs. 3290
+
+Wild Deal	2 Fillet Burger, 5 Nuggets, 1 Fries, 1 300ml Drink	Rs. 1260
+
+Crispy Funda	3 Chicken Pcs, 1 Burger Bun, 1 Dip Sauce, 1 300ml Drink	Rs. 850
+
+Family Fiesta	5 Zinger Burger, 1 Fries, 1 1.5 Ltr Drink Rs. 2300
+
+Snack Box Deal	2 Zinger Burger, 3 Nuggets, 1 Fries, 1 300ml Drink Rs. 1190
+
+Range Raid Deal	1 Zingo Burger, 1 Patty Burger, 1 Fries, 5 Nuggets, 1 1Ltr Drink Rs. 1300
+
+Couple Deal	1 Zinger Burger, 1 Zinger Shawarma, 1 Fries, 1 300ml Drink Rs. 1150
+
+Mid-Night Deals 15% off
+Deal 1	3 Chicken Pcs, 1 Bun, 1 300 ml Drink, 1 Dip Sauce	Rs. 830
+
+Deal 2	1 Large Pizza, 1 1 Ltr Drink	Rs. 1540
+
+Deal 3	2 Zinger Wrap, 2 300ml Drink	Rs. 1350
+
+Deal 4	1 Medium Pizza, 1 300ml Drink	Rs. 1060
+
+Deal 5	1 Zinger Burger, 1 Ch Pcs, 1 Fries, 1 300ml Drink	Rs. 890
+
+Deal 6	1 Club Sandwich, 1 300ml Drink	Rs. 630
+
+
+Add Ons
+
+Cheese Slice | Price: 100
+
+Extra Dip Sauce | Price: 100
+
+Lacha Paratha | Price: 100
+
+Soft Drink
+
+345 ml | Price: 90
+
+1 Liter | Price: 160
+
+1.5 Liter | Price: 220
+
+Chillers
+
+Electric Blue | Price: 400
+
+Strawberry | Price: 400
+
+Blue Berry | Price: 400
+
+Crispy Chicken
+
+1pcs Price 250
+
+3pcs Price 750
+
+5pcs Price 1200
+
+Would you like me to format this into a spreadsheet/CSV file or clean table format for easier importing into your POS system?
