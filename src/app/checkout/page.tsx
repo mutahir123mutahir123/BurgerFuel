@@ -20,6 +20,12 @@ export default function CheckoutPage() {
     }
   }, [items.length, completedOrder, router]);
 
+  useEffect(() => {
+    if (completedOrder) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [completedOrder]);
+
   if (items.length === 0 && !completedOrder) {
     return null;
   }
