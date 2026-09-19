@@ -5,10 +5,11 @@ import { CheckoutFormData } from '@/types';
 
 interface CheckoutFormProps {
   onSubmit: (formData: CheckoutFormData) => void;
+  orderType: 'pickup' | 'delivery';
+  onOrderTypeChange: (type: 'pickup' | 'delivery') => void;
 }
 
-export function CheckoutForm({ onSubmit }: CheckoutFormProps) {
-  const [orderType, setOrderType] = useState<'pickup' | 'delivery'>('delivery');
+export function CheckoutForm({ onSubmit, orderType, onOrderTypeChange }: CheckoutFormProps) {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
@@ -65,7 +66,7 @@ export function CheckoutForm({ onSubmit }: CheckoutFormProps) {
         <div className="grid grid-cols-2 gap-3">
           <button
             type="button"
-            onClick={() => setOrderType('delivery')}
+            onClick={() => onOrderTypeChange('delivery')}
             className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 font-medium text-sm transition-all duration-200 cursor-pointer ${
               orderType === 'delivery'
                 ? 'border-accent bg-accent/5 text-foreground'
@@ -81,7 +82,7 @@ export function CheckoutForm({ onSubmit }: CheckoutFormProps) {
           </button>
           <button
             type="button"
-            onClick={() => setOrderType('pickup')}
+            onClick={() => onOrderTypeChange('pickup')}
             className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 font-medium text-sm transition-all duration-200 cursor-pointer ${
               orderType === 'pickup'
                 ? 'border-accent bg-accent/5 text-foreground'

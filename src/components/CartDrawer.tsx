@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
-import { formatPrice } from '@/utils';
+import { formatPrice, isFreeDelivery } from '@/utils';
 import Image from 'next/image';
 
 interface CartDrawerProps {
@@ -191,6 +191,16 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
             {/* Footer */}
             <div className="absolute bottom-0 left-0 right-0 sm:static border-t border-border px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:flex-shrink-0 z-10 bg-background">
+              {!isFreeDelivery(subtotal) && (
+                <p className="text-xs text-muted mb-2">
+                  Add {formatPrice(500 - subtotal)} more for free delivery
+                </p>
+              )}
+              {isFreeDelivery(subtotal) && (
+                <p className="text-xs text-green-500 font-medium mb-2">
+                  You qualify for free delivery!
+                </p>
+              )}
               <div className="flex items-center gap-3">
                 <div className="flex-1 min-w-0">
                   <p className="text-xs text-muted font-medium">Subtotal</p>

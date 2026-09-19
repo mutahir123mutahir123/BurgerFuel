@@ -2,14 +2,19 @@
 
 import Image from 'next/image';
 import { CartItem } from '@/types';
-import { formatPrice } from '@/utils';
+import { formatPrice, getDeliveryCharge, isFreeDelivery } from '@/utils';
 
 interface OrderSummaryProps {
   items: CartItem[];
   subtotal: number;
+  orderType?: 'pickup' | 'delivery';
 }
 
-export function OrderSummary({ items, subtotal }: OrderSummaryProps) {
+export function OrderSummary({ items, subtotal, orderType = 'delivery' }: OrderSummaryProps) {
+  const deliveryCharge = orderType === 'delivery' ? getDeliveryCharge(subtotal) : 0;
+  const freeDelivery = orderType === 'delivery' && isFreeDelivery(subtotal);
+  const total = subtotal + deliveryCharge;
+
   return (
     <div className="space-y-4">
       <h2 className="text-xs font-semibold text-muted uppercase tracking-wider">
@@ -54,10 +59,26 @@ export function OrderSummary({ items, subtotal }: OrderSummaryProps) {
         ))}
       </div>
 
-      <div className="border-t border-border pt-3">
-        <div className="flex items-center justify-between text-base font-semibold">
+      <div className="border-t border-border pt-3 space-y-2">
+        <div className="flex items-center justify-between text-sm">
           <span>Subtotal</span>
           <span>{formatPrice(subtotal)}</span>
+        </div>
+
+        {orderType === 'delivery' && (
+          <div className="flex items-center justify-between text-sm">
+            <span>Delivery</span>
+            {freeDelivery ? (
+              <span className="text-green-500 font-medium">FREE</span>
+            ) : (
+              <span>{formatPrice(deliveryCharge)}</span>
+            )}
+          </div>
+        )}
+
+        <div className="flex items-center justify-between text-base font-semibold border-t border-border pt-2">
+          <span>Total</span>
+          <span className="text-accent">{formatPrice(total)}</span>
         </div>
       </div>
     </div>

@@ -8,11 +8,13 @@ import { CheckoutForm } from '@/components/CheckoutForm';
 import { OrderSummary } from '@/components/OrderSummary';
 import { ThankYouMessage } from '@/components/ThankYouMessage';
 import { CheckoutFormData, Order } from '@/types';
+import { getDeliveryCharge } from '@/utils';
 
 export default function CheckoutPage() {
   const router = useRouter();
   const { items, subtotal, placeOrder } = useCart();
   const [completedOrder, setCompletedOrder] = useState<Order | null>(null);
+  const [orderType, setOrderType] = useState<'pickup' | 'delivery'>('delivery');
 
   useEffect(() => {
     if (items.length === 0 && !completedOrder) {
@@ -30,13 +32,16 @@ export default function CheckoutPage() {
     return null;
   }
 
+  const deliveryCharge = orderType === 'delivery' ? getDeliveryCharge(subtotal) : 0;
+  const total = subtotal + deliveryCharge;
+
   const handlePlaceOrder = (formData: CheckoutFormData) => {
     const orderId = placeOrder(formData);
     const order: Order = {
       id: orderId,
       items: [...items],
       formData,
-      total: subtotal,
+      total,
       status: 'pending',
       createdAt: new Date(),
     };
@@ -72,14 +77,14 @@ export default function CheckoutPage() {
           {/* Order Summary - shows first on mobile */}
           <div className="lg:col-span-2 lg:order-last">
             <div className="bg-card rounded-2xl border border-border p-5 sm:p-6 lg:sticky lg:top-36">
-              <OrderSummary items={items} subtotal={subtotal} />
+              <OrderSummary items={items} subtotal={subtotal} orderType={orderType} />
             </div>
           </div>
 
           {/* Form */}
           <div className="lg:col-span-3">
             <div className="bg-card rounded-2xl border border-border p-5 sm:p-6">
-              <CheckoutForm onSubmit={handlePlaceOrder} />
+              <CheckoutForm onSubmit={handlePlaceOrder} orderType={orderType} onOrderTypeChange={setOrderType} />
             </div>
           </div>
         </div>
